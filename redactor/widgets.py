@@ -8,18 +8,18 @@ from django.conf import settings
 GLOBAL_OPTIONS = getattr(settings, 'REDACTOR_OPTIONS', {})
 
 INIT_JS = """<script type="text/javascript">
-  jQuery(document).ready(function(){
-    $("#%s").redactor(%s);
-  });
-</script>
-"""
+    (function($){
+        $("#%s").redactor(%s);
+    })(jQuery || django.jQuery);
+    </script>
+    """
 
 
 class RedactorEditor(widgets.Textarea):
 
     class Media:
         js = (
-            'redactor/jquery-1.7.min.js',
+            settings.JQUERY_URL,
             'redactor/redactor.min.js',
         )
         css = {
