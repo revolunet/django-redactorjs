@@ -6,7 +6,7 @@ from django.conf import settings
 
 
 GLOBAL_OPTIONS = getattr(settings, 'REDACTOR_OPTIONS', {})
-JQUERY_URL = getattr(settings, 'REDACTOR_EXTERNAL_JQUERY', None)
+JQUERY_URL = getattr(settings, 'JQUERY_URL', None)
 
 INIT_JS = """<script type="text/javascript">
     (function($){
@@ -15,12 +15,14 @@ INIT_JS = """<script type="text/javascript">
     </script>
     """
 
-redactor_js = [
+redactor_js = [
     'redactor/redactor.min.js',
     'redactor/init.js',
 ]
 
-redactor_js.insert(0, JQUERY_URL) if JQUERY_URL
+if JQUERY_URL:
+    redactor_js.insert(0, JQUERY_URL)
+
 
 class RedactorEditor(widgets.Textarea):
 
