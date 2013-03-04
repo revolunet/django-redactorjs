@@ -114,16 +114,16 @@ RTOOLBAR['default'] =
 		title: RLANG.image, 						
 		func: 'showImage' 			
 	},
-	video:
-	{
-		title: RLANG.video,
-		func: 'showVideo'
-	},
-	file:
-	{
-		title: RLANG.file,
-		func: 'showFile'
-	},	
+//	video:
+//	{
+//		title: RLANG.video,
+//		func: 'showVideo'
+//	},
+//	file:
+//	{
+//		title: RLANG.file,
+//		func: 'showFile'
+//	},	
 	table: 					
 	{ 
 		title: RLANG.table,
